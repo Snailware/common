@@ -2,8 +2,8 @@ from datetime import datetime, timedelta, tzinfo
 from pytz import timezone
 
 class Timer:
-    def __init__(self) -> None:
-        self.time_zone: tzinfo = timezone('EST')
+    def __init__(self, tz: str = 'EST') -> None:
+        self.time_zone: tzinfo = timezone(tz)
         self.start_time: datetime = None
         self.stop_time: datetime = None
         
