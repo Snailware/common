@@ -7,8 +7,16 @@ from pyperclip import paste
 import PIL
 
 
-class Autoclicker:
+class Autoclicker: 
+    """
+    an easy to use class for GUI manipulation.
+    """
     def __init__(self, failsafe: bool = True, pause: float = 0.08) -> None:
+        """
+        Args:
+            failsafe (bool, optional): pyautogui failsafe flag. moving the cursor to 0,0 (top left corner of screen) will stop execution. this should almost always be True. Defaults to True.
+            pause (float, optional): period of time in seconds between pyautogui actions. Defaults to 0.08.
+        """
         pag.FAILSAFE = failsafe
         pag.PAUSE = pause
 
@@ -19,6 +27,18 @@ class Autoclicker:
         y_offset: int = 0,
         confidence: float = 0.9,
     ) -> None:
+        """
+        search screen for image and click on it, optionally applying to center of image before clicking. 
+
+        Args:
+            image_path (Path): path to image to search screen for.
+            x_offset (int, optional): x offset to apply from image center before clicking. Defaults to 0.
+            y_offset (int, optional): y offset to apply from image center before clicking. Defaults to 0.
+            confidence (float, optional): how precisely screen image must match image for positive match. Defaults to 0.9.
+
+        Raises:
+            Exception: if image cannot be located on screen after 50 tries (roughly 5 seconds with included .1 second delay).
+        """
         failed_attempts = 0
         x, y = None, None
         while x == None or y == None:
