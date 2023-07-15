@@ -7,10 +7,11 @@ from pyperclip import paste
 import PIL
 
 
-class Autoclicker: 
+class Autoclicker:
     """
     an easy to use class for GUI manipulation.
     """
+
     def __init__(self, failsafe: bool = True, pause: float = 0.08) -> None:
         """
         Args:
@@ -28,7 +29,7 @@ class Autoclicker:
         confidence: float = 0.9,
     ) -> None:
         """
-        search screen for image and click on it, optionally applying to center of image before clicking. 
+        search screen for image and click on it, optionally applying to center of image before clicking.
 
         Args:
             image_path (Path): path to image to search screen for.
